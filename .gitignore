@@ -1,0 +1,40 @@
+# --- Created by native\setup.cmd: never publish these ---------------------------
+# Zalo's call engine (VNG's own binaries, not ours to redistribute) and
+# host-config.json, which holds the engine's pipe encryption key.
+native/engine/
+host-config.json
+# Setup's temp folder, and a Zalo installer kept with --keep-download.
+native/.setup-tmp/
+ZaloSetup*.exe
+*.7z
+*.asar
+# Edge registration files. They contain this PC's paths (the project folder and
+# node.exe), so setup generates them on each machine.
+native/host/com.zalo_web_call.host.json
+native/host/zalo-call-host.cmd
+
+# --- Logs: call activity, device IDs, crash dumps ------------------------------
+native/logs/
+*.log
+*.dmp
+
+# --- Extension signing keys and packaged builds ---------------------------------
+*.pem
+*.crx
+*.zip
+
+# --- Local secrets and settings -------------------------------------------------
+.env
+.env.*
+.claude/settings.local.json
+
+# --- Tests ----------------------------------------------------------------------
+test/.scratch/
+
+# --- Tooling and OS files -------------------------------------------------------
+node_modules/
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store

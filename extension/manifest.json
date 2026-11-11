@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Zalo Web Call (unofficial)",
+  "short_name": "Zalo Web Call",
+  "version": "0.1.0",
+  "description": "Adds Zalo voice and video calls to chat.zalo.me, using Zalo's own call engine through a small local helper.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlNy4awI+3tdRNP5cpB3XvrNeLK2dr50B6DY+VuFhrnJqLMxI6wf5GnPngLmyTTpW5Q+k+RZiaIGTmCxhGzu5TBRT9IVfF/EpfMO+TAfBcSswpTHshTaV9njoLBxSct+J2KmcwyzvfoYEh2VZ6k9QNIjzEtyY9VWg7aLqYNmXGTwJHBB9Cfq1j9wN408A4xSiMtAWta/2dhRkFGLNSqyvgisBD2c3Ori+cJIvt1JXwCpCG0TzLBXx/IwkAk78ysfNeAQDi8n+KyelhwVNxAWGXGJGxT1jrpWzbrWY0lKoBr6UHj592+xWtaTKmwCM5Wy3wM1j3AM1AMA61CyjR6FhLwIDAQAB",
+  "minimum_chrome_version": "111",
+  "permissions": ["nativeMessaging", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.zalo.me/*"],
+      "js": ["content/page-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://chat.zalo.me/*"],
+      "js": ["content/bridge.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_title": "Zalo Web Call",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
